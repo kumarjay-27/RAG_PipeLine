@@ -1,24 +1,36 @@
 {
-  "name": "ragpipe-web",
+  "name": "learn-rag",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio"
   },
   "dependencies": {
-    "next": "16.2.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "@langchain/core": "^1.2.1",
+    "@langchain/google-genai": "^2.2.0",
+    "@langchain/langgraph": "^0.2.0",
+    "@pinecone-database/pinecone": "^3.0.0",
+    "@prisma/client": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "framer-motion": "^11.0.0",
+    "langchain": "^0.3.0",
+    "next": "^15.0.0",
+    "next-auth": "^5.0.0-beta",
+    "pdf-parse": "^1.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.9",
-    "typescript": "^5"
+    "@types/bcryptjs": "^2.4.0",
+    "@types/node": "^20.0.0",
+    "@types/pdf-parse": "^1.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prisma": "^5.0.0"
   }
 }
