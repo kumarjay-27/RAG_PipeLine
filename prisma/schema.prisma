@@ -21,6 +21,7 @@ model RagSession {
   userId       String
   user         User      @relation(fields: [userId], references: [id])
   documentName String?
+  state        String?
   createdAt    DateTime  @default(now())
   completedAt  DateTime?
 }

@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       )
     }
 
-    let state = loadSession(sessionId)
+    let state = await loadSession(sessionId)
     if (!state) {
       state = defaultState(userId, sessionId)
     }
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
     }
 
     const resultState = await ragGraph.invoke(state) as GraphState
-    saveSession(sessionId, resultState)
+    await saveSession(sessionId, resultState)
 
     return NextResponse.json({
       success: true,

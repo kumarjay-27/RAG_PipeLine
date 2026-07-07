@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const state = loadSession(sessionId)
+    const state = await loadSession(sessionId)
     if (!state) {
       return NextResponse.json(
         { success: false, error: `Session not found: ${sessionId}` },
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     state.errorMessage = null
 
     const resultState = await ragGraph.invoke(state) as GraphState
-    saveSession(sessionId, resultState)
+    await saveSession(sessionId, resultState)
 
     return NextResponse.json({
       success: true,
