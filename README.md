@@ -29,7 +29,7 @@ learn-rag/
 │   │   └── register/page.tsx        # New user registration form
 │   ├── api/
 │   │   ├── auth/[...nextauth]/      # NextAuth.js v5 route handlers
-│   │   ├── auth/register/           # Hashing and SQLite registration API
+│   │   ├── auth/register/           # Hashing and PostgreSQL registration API
 │   │   ├── session/                 # CRUD for user tracking workspaces
 │   │   ├── upload/                  # Decodes raw files (.txt and .pdf)
 │   │   ├── rag-pipeline/            # Triggers LangGraph RAG steps
@@ -54,7 +54,7 @@ learn-rag/
 │   ├── auth.ts                      # Credentials provider logic
 │   ├── gemini.ts                    # Google GenAI model settings & custom embeddings
 │   ├── pinecone.ts                  # Pinecone database client & cosine fallback
-│   ├── prisma.ts                    # SQLite database client
+│   ├── prisma.ts                    # Prisma database client (PostgreSQL)
 │   └── session-store.ts             # Memory cache for active graph traces
 ├── prisma/
 │   └── schema.prisma                # Relational user and workspace schemas (PostgreSQL)
