@@ -9,7 +9,7 @@ An interactive, dark-themed educational web application designed to teach studen
 ### Prerequisites
 *   **Runtime:** Node.js v18.0.0 or higher
 *   **Package Manager:** npm v9.0.0 or higher
-*   **Relational Database:** SQLite (configured locally out-of-the-box, no standalone setup required)
+*   **Relational Database:** PostgreSQL (Neon, Vercel Postgres, or local instance)
 *   **AI Services (Optional):**
     *   **Google Gemini API Key** (for embedding chunks and generating LLM responses)
     *   **Pinecone Account & Index** (for vector storage and similarity search)
@@ -57,8 +57,7 @@ learn-rag/
 │   ├── prisma.ts                    # SQLite database client
 │   └── session-store.ts             # Memory cache for active graph traces
 ├── prisma/
-│   ├── dev.db                       # Active SQLite local file (gitignored)
-│   └── schema.prisma                # Relational user and workspace schemas
+│   └── schema.prisma                # Relational user and workspace schemas (PostgreSQL)
 ├── types/
 │   └── rag.ts                       # Shared TypeScript interface definitions
 ├── .env                             # Database url setting for Prisma CLI
@@ -83,7 +82,7 @@ cp .env.local.example .env.local
 ```
 Open [`.env.local`](file:///d:/AI_workshop/RAGpipe_Web/.env.local) and input your credentials:
 ```env
-DATABASE_URL="file:./dev.db"
+DATABASE_URL="postgresql://username:password@localhost:5432/database_name?schema=public"
 NEXTAUTH_SECRET="your-generated-random-secret"
 NEXTAUTH_URL="http://localhost:3000"
 GOOGLE_GENERATIVE_AI_API_KEY="your-gemini-api-key"
@@ -91,10 +90,10 @@ PINECONE_API_KEY="your-pinecone-api-key"
 PINECONE_INDEX_NAME="learn-rag"
 ```
 
-### 3. Sync Database Tables
-Create the local SQLite file and sync schemas via Prisma:
+### 3. Run Database Migrations
+Create and apply migrations to your PostgreSQL database:
 ```bash
-npx prisma db push
+npx prisma migrate dev
 ```
 
 ### 4. Start the Development Server

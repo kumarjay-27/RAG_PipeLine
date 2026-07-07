@@ -1,5 +1,4 @@
 'use client'
-
 import { ParameterPanelProps } from '@/types/rag'
 import { useState, useEffect } from 'react'
 
