@@ -105,7 +105,7 @@ Open **`http://localhost:3000`** in your browser to start learning RAG!
 
 ---
 
-## ⚡ Technical Architecture Details
+## ⚡ Technical Architecture Details.
 
 *   **Framework:** Next.js 15 (App Router) + React 19
 *   **State Machine:** `@langchain/langgraph` to construct state annotations, routing edges, and modular agents.
